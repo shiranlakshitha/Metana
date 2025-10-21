@@ -1,8 +1,13 @@
 import React from 'react'
+import Welcome from './pages/Welcome'
 
 const App = () => {
   return (
-    <div className='text-5xl'>App</div>
+    <>
+      <div className='flex items-center justify-center min-h-screen'>
+        <Welcome />
+      </div>
+    </>
   )
 }
 
