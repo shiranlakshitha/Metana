@@ -13,7 +13,7 @@ const Navbar = () => {
         {/*search bar*/}
         <div className='flex flex-row items-center bg-[#F2F2F7] w-[594px] rounded-[99px] py-[8px] pl-[16px] gap-2 text-[12px]'>
             <IoIosSearch className='text-[#3C3C4399] w-3.5 h-3.5'/>
-            <input type="text" placeholder='Search projects and experiences' className='w-full font-roboto-flex text-[#3C3C4399]' />
+            <input type="text" placeholder='Search projects and experiences' className='w-full font-roboto-flex text-[#3C3C4399] focus:outline-none' />
         </div>
         {/*button*/}
         <div className='flex font-inter text-[12px] flex-row items-center py-2 px-3.5 border-2 border-[#D1D1D1] rounded-[99px] gap-3'>
