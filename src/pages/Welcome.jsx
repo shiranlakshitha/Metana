@@ -30,17 +30,22 @@ const Welcome = () => {
             </div>
         </div>
         <div className='flex flex-1/2 relative h-full'>
-            <video src={welcomeVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload='auto'
-            className='absolute inset-0 z-10 object-cover h-full bg-transparent'
-            >
+            <video
+              src={welcomeVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload='auto'
+             className='absolute inset-0 z-10 w-full h-full object-cover bg-transparent'
+            />
 
-            </video>
-            <img src={introImgLight} className='inset-0  z-20 opacity-80 object-cover ' alt="intro-img" />
+            <img
+             src={introImgLight}
+              alt="intro-img"
+              className='absolute inset-0 z-20 w-full h-full object-cover opacity-80'
+             style={{ mixBlendMode: 'plus-lighter' }}
+            />
         </div>
     </div>
   )
