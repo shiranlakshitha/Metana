@@ -5,7 +5,12 @@ import { sidebarItems } from "../assets/sidebar";
 import { CiCircleQuestion } from "react-icons/ci";
 import { IoSettingsOutline } from "react-icons/io5";
 import profile from '../assets/profile.png'
-
+import Background from '../assets/Background.png'
+import Schedule from '../assets/Schedule.png'
+import Integrations from '../assets/Integrations.png'
+import Tutorial from '../assets/Tutorial.png'
+import Collaborate from '../assets/Collaborate.png'
+import Goal from '../assets/Goal.png'
 const Dashboard = () => {
   return (
     <div className="min-w-[1530px] flex flex-row min-h-screen">
@@ -30,7 +35,20 @@ const Dashboard = () => {
         <div className="px-[72px] py-[24px]">
           <Navbar />
         </div>
-        <div></div>
+        <div className="px-[72px] flex flex-col items-center">
+          <div className="w-full relative h-[320px] bg-[#F7F2FFE5] rounded-3xl overflow-hidden">
+            <img src={Background} className="absolute z-10 inset-0 object-cover" alt="background-img" />
+            <img src={Schedule} className="absolute top-0 right-0 object-cover" alt="schedule-img" />
+            <img src={Integrations} className="absolute bottom-0 right-0 object-cover" alt="schedule-img" />
+            <img src={Tutorial} className="absolute top-0 right-[200px] object-cover" alt="schedule-img" />
+            <img src={Collaborate} className="absolute bottom-0 right-[200px] object-cover" alt="schedule-img" />
+            <img src={Goal} className="absolute bottom-0 right-[450px] object-cover" alt="schedule-img" />
+            
+
+          </div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </div>
   );
