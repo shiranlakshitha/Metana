@@ -16,6 +16,10 @@ import { CiStar } from "react-icons/ci";
 import { GoArrowRight } from "react-icons/go";
 import TemplateCard from "../components/TemplateCard";
 import { templates } from "../assets/templates";
+import { LuClock5 } from "react-icons/lu";
+import ProjectCard from "../components/ProjectCard";
+import { projects } from "../assets/projects";
+
 const Dashboard = () => {
   return (
     <div className="min-w-[1530px] flex flex-row gap-6 h-[1056px] overflow-hidden">
@@ -85,12 +89,12 @@ const Dashboard = () => {
           </div>
           <div className="flex flex-col w-full">
             <div className="flex flex-row items-center justify-between p-[15px] gap-2">
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row items-center gap-2">
                     <CiStar className="w-4 h-4 text-[#5F6367]"/>
-                    <p>For you</p>
+                    <p className="font-inter text-[#5F6367] text-[16px]">For you</p>
                 </div>
                 <div className="flex flex-row items-center gap-2">
-                    <p>View all templates</p>
+                    <p className="font-roboto-flex text-[12px] text-[#5F6367]">View all templates</p>
                     <GoArrowRight className="w-4 h-4 text-[#5F6367]"/>
                 </div>
             </div>
@@ -100,7 +104,23 @@ const Dashboard = () => {
                 ))}
             </div>
           </div>
-          <div></div>
+          <div className="w-full flex flex-col">
+            <div className="flex flex-row items-center justify-between p-[15px] gap-2">
+                <div className="flex flex-row items-center gap-2">
+                    <LuClock5 className="w-4 h-4 text-[#5F6367]"/>
+                    <p className="font-inter text-[#5F6367] text-[16px]">Recents</p>
+                </div>
+                <div className="flex flex-row items-center gap-2">
+                    <p className="font-roboto-flex text-[12px] text-[#5F6367]">See in projects</p>
+                    <GoArrowRight className="w-4 h-4 text-[#5F6367]"/>
+                </div>
+            </div>
+            <div className="grid grid-cols-4">
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} title={project.title} description={project.description} image={project.image}/>
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
