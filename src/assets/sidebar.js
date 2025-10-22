@@ -21,11 +21,5 @@ export const sidebarItems = [{
 }, {
     name: "More",
     image: "IoIosMore"
-}, {
-    name: "Help",
-    image: "CiCircleQuestion"
-}, {
-    name: "Settings",
-    image: "IoSettingsOutline"
 }];
     
