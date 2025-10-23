@@ -24,26 +24,27 @@ import { MdOutlineLightMode } from "react-icons/md";
 
 const Dashboard = () => {
   const [isDark, setIsDark] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(0)
 
   const handleDark = () => {
     setIsDark(!isDark)
   }
   return (
     <div className={isDark ? "dark" : ""}>
-      <div className=" relative min-w-[1530px] flex flex-row gap-6 h-[1056px] overflow-hidden dark:bg-[#1F1F1F]">
+      <div className=" relative min-w-full flex flex-row gap-6 h-[1056px] overflow-hidden dark:bg-[#1F1F1F]">
         {/*sidebar*/}
         <div className="w-[96px] flex flex-col justify-between pt-[60px] pb-[24px] px-2 bg-[#f9f9f9] dark:bg-[#1F1F1F]">
           <div className="flex flex-col gap-4">
-            <div onClick={handleDark} className="absolute top-2 left-7 px-1 py-1 rounded-full border-2 cursor-pointer">
+            <div onClick={handleDark} className={`absolute top-2 left-8 px-1 py-1 rounded-full border-2 cursor-pointer ${isDark ? 'border-white': 'border-black'}`}>
                 {isDark ? (<MdOutlineLightMode className='w-4 h-4 text-white'/>) : (<MdDarkMode className='w-4 h-4'/>)}
             </div>
             {sidebarItems.slice(0, 5).map((items, key) => (
-              <SidebarItem dark={isDark} key={key} name={items.name} image={items.image} />
+              <SidebarItem onSelect={() => {selectedItem(key)}} isSelected={selectedItem == key} dark={isDark} key={key} name={items.name} image={items.image} />
             ))}
           </div>
           <div className="w-full flex flex-col items-center gap-4">
-            <CiCircleQuestion className="w-5 h-5 text-[#5F6367]" />
-            <IoSettingsOutline className="w-5 h-5 text-[#5F6367]" />
+            <CiCircleQuestion className={`w-5 h-5 ${isDark ? 'text-white': 'text-[#5F6367]'}`} />
+            <IoSettingsOutline className={`w-5 h-5 ${isDark ? 'text-white': 'text-[#5F6367]'}`} />
             <img src={profile} alt="profile-img" />
           </div>
         </div>
