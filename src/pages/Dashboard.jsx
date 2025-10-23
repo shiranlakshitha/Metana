@@ -27,7 +27,7 @@ const Dashboard = () => {
   const [isDark, setIsDark] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)

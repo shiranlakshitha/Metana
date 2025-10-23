@@ -14,12 +14,12 @@ const Welcome = () => {
   }
   return (
     <div className={isDark ? "dark" : ""}>
-      <div className="relative dark:bg-[#404040] flex items-center justify-center min-h-screen max-md:px-[50px] max-md:py-[15px]">
+      <div className="relative dark:bg-[#404040] flex items-center justify-center min-h-screen max-md:px-[25px] max-md:py-[15px]">
         <div onClick={handleDark} className="absolute cursor-pointer top-5 right-8 px-1 py-1 rounded-full border-2">
             {isDark ? (<MdOutlineLightMode className='w-4 h-4 text-white'/>) : (<MdDarkMode className='w-4 h-4'/>)}
         </div>
         <div className="flex w-[1180px] h-[680px] rounded-3xl shadow-2xl overflow-hidden dark:bg-[#292929]">
-          <div className="flex flex-1/2 flex-col justify-between px-[20px] md:px-[40px] py-[64px]  ">
+          <div className="flex flex-1/2 flex-col justify-between px-[30px] md:px-[40px] py-[64px]  ">
             <div className="flex flex-col font-poppins dark:text-white">
               <h1 className="text-[40px]">Welcome to Sonola</h1>
               <p className="text-[20px] leading-[28px]">
