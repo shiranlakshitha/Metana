@@ -7,7 +7,7 @@ import Project2 from "../assets/project2.png";
 import Dot from "../assets/dot.png";
 import Project4 from "../assets/project4.png";
 
-const ProjectCard = ({ title, description, image }) => {
+const ProjectCard = ({ title, description, image, dark }) => {
   return (
     <div className="relative w-[304px] h-[236px] overflow-hidden py-4 px-2 flex flex-col justify-center mx-auto">
       <div className="w-[282px] h-[180px] rounded-2xl overflow-hidden bg-[#F2F2F7] justify-center flex items-center">
@@ -17,11 +17,23 @@ const ProjectCard = ({ title, description, image }) => {
           alt="project-img"
         />
       </div>
-      <h3 className="font-inter text-[14px] font-semibold">{title}</h3>
+      {dark ? (
+        <h3 className="font-inter text-[14px] font-semibold text-white">
+          {title}
+        </h3>
+      ) : (
+        <h3 className="font-inter text-[14px] font-semibold">{title}</h3>
+      )}
       <div className="flex flex-row items-center gap-1 justify-between">
-        <p className="font-roboto-flex text-[12px] text-[#3C3C4399]">
-          {description}
-        </p>
+        {dark ? (
+          <p className="font-roboto-flex text-[12px] text-white">
+            {description}
+          </p>
+        ) : (
+          <p className="font-roboto-flex text-[12px] text-[#3C3C4399]">
+            {description}
+          </p>
+        )}
         <IoIosMore className="w-4 h-4 text-[#979A9B]" />
       </div>
       {image == Project1 ? (
@@ -48,13 +60,13 @@ const ProjectCard = ({ title, description, image }) => {
       ) : (
         ""
       )}
-      {
-        image == Project4 ? (
-            <div className="absolute top-5.5 right-5.5 px-2 py-0.5 bg-[#5856D6] flex flex-row items-center gap-0.5 rounded-[12px]">
+      {image == Project4 ? (
+        <div className="absolute top-5.5 right-5.5 px-2 py-0.5 bg-[#5856D6] flex flex-row items-center gap-0.5 rounded-[12px]">
           <p className="font-roboto-flex text-[11px] text-white">Live</p>
         </div>
-        ) : ('')
-      }
+      ) : (
+        ""
+      )}
     </div>
   );
 };
