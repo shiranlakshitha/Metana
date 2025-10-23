@@ -1,8 +1,10 @@
 import React from 'react'
 import welcomeVideo from '../assets/original-848c54b44182083599d62428e3ac9ad2 (1).mp4'
 import introImgLight from '../assets/eacbd73be365c7aef3b53b74990292622932794c.png'
+import { useNavigate } from 'react-router-dom'
 
 const Welcome = () => {
+    const navigate = useNavigate()
   return (
     <div className='flex w-[1180px] h-[680px] rounded-3xl shadow-2xl overflow-hidden'>
         <div className='flex flex-1/2 flex-col justify-between px-[40px] py-[64px]  '>
@@ -23,7 +25,7 @@ const Welcome = () => {
                        <div className='flex-1/10 bg-[#3F8BFE1A] h-[8px]  rounded-[12px]'></div>  
                        <div className='flex-6/10 bg-[#0066FFCC] h-[8px]  rounded-[12px] opacity-80'></div>  
                     </div>
-                    <div className='flex-1/3 text-white text-[16px] px-[8px] py-[14px] rounded-xl flex justify-center items-center bg-[#0066FFCC] font-sf-pro'>
+                    <div onClick={() => navigate('/dashboard')} className='flex-1/3 text-white text-[16px] px-[8px] py-[14px] rounded-xl flex justify-center items-center bg-[#0066FFCC] font-sf-pro'>
                         Next
                     </div>
                 </div>
