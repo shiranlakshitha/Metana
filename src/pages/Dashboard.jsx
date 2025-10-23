@@ -50,7 +50,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="w-full">
-          <div className="px-[72px] py-[24px]">
+          <div className="px-[20px] md:px-[72px] w-full py-[24px]">
             <Navbar dark={isDark}/>
           </div>
           <div className="px-[15px] md:px-[36px] lg:px-[72px] flex flex-col items-center dark:bg-[#1F1F1F]">
