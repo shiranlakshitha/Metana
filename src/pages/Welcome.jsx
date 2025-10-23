@@ -27,7 +27,7 @@ const Welcome = () => {
                 few clicks. Let’s get started!
               </p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-5">
               <div className="px-[16px] dark:text-white">
                 <p className=" text-[18px] leading-[24px] font-poppins">
                   63% of marketers say creating engaging content consistently is

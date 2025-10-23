@@ -1,39 +1,68 @@
-import React from 'react'
-import logo from '../assets/logo.png'
+import React from "react";
+import logo from "../assets/logo.png";
 import { IoIosSearch } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
 import { CiMenuBurger } from "react-icons/ci";
-const Navbar = ({dark, menu}) => {
+const Navbar = ({ dark, menu }) => {
   return (
     <>
-        <div className='flex flex-row items-center w-full justify-between'>
+      <div className="flex flex-row items-center w-full justify-between">
         {/*logo*/}
-        <div className='flex flex-row items-center gap-2'>
-    <CiMenuBurger onClick={menu} className={`block md:hidden w-4 h-4 ${dark ? 'text-white' : 'text-black'}`}/>
-    <div className='w-[112px] h-[30px]'>
-        <img src={logo} className='w-full h-full object-contain' alt="logo" />
-    </div>
-</div>
-        {/*search bar*/}
-        {dark ? (<div className='hidden md:flex flex-row items-center bg-[#323232] flex-1 md:w-[594px] rounded-[99px] py-[8px] pl-[16px] gap-2 text-[12px]'>
-            <IoIosSearch className='text-[#ffffff] w-3.5 h-3.5'/>
-            <input type="text" placeholder='Search projects and experiences' className='w-full font-roboto-flex text-[#ffffff] focus:outline-none' />
-        </div>) : (<div className='hidden md:flex flex-row items-center bg-[#F2F2F7] w-[594px] rounded-[99px] py-[8px] pl-[16px] gap-2 text-[12px]'>
-            <IoIosSearch className='text-[#3C3C4399] w-3.5 h-3.5'/>
-            <input type="text" placeholder='Search projects and experiences' className='w-full font-roboto-flex text-[#3C3C4399] focus:outline-none' />
-        </div>)}
-        {/*button*/}
-        <div className='flex font-inter text-[12px] flex-row items-center py-2 px-3.5 border-2 border-[#D1D1D1] rounded-[99px] gap-3'>
-            {dark ? (<p className='text-white'>Try Pro</p>) : (<p>Try Pro</p>)}
-            <BsStars  className='text-[#007AFF]'/>
+        <div className="flex flex-row items-center gap-2">
+          <CiMenuBurger
+            onClick={menu}
+            className={`block md:hidden w-4 h-4 ${
+              dark ? "text-white" : "text-black"
+            }`}
+          />
+          <div className="w-[112px] h-[30px]">
+            <img
+              src={logo}
+              className="w-full h-full object-contain"
+              alt="logo"
+            />
+          </div>
         </div>
-    </div>
-    <div className='w-full hidden max-md:flex flex-row gap-3 px-2 py-3 items-center mt-[15px] bg-[#F2F2F7] rounded-[99px]'>
-            <IoIosSearch className={`w-6 h-6 ${dark ? 'text-white' : 'text-[#3C3C4399]'}`}/>
-            <input type="text" placeholder='Search projects and experiences' className={`w-full font-roboto-flex ${dark ? 'text-white' : 'text-black'} focus:outline-none`} />
-    </div>
+        {/*search bar*/}
+        {dark ? (
+          <div className="hidden md:flex flex-row items-center bg-[#323232] sm:w-[350px] md:w-[594px] rounded-[99px] py-[8px] pl-[16px] gap-2 text-[12px]">
+            <IoIosSearch className="text-[#ffffff] w-3.5 h-3.5" />
+            <input
+              type="text"
+              placeholder="Search projects and experiences"
+              className="w-full font-roboto-flex text-[#ffffff] focus:outline-none"
+            />
+          </div>
+        ) : (
+          <div className="hidden md:flex flex-row items-center bg-[#F2F2F7] sm:w-[350px]  md:w-[594px] rounded-[99px] py-[8px] pl-[16px] gap-2 text-[12px]">
+            <IoIosSearch className="text-[#3C3C4399] w-3.5 h-3.5" />
+            <input
+              type="text"
+              placeholder="Search projects and experiences"
+              className="w-full font-roboto-flex text-[#3C3C4399] focus:outline-none"
+            />
+          </div>
+        )}
+        {/*button*/}
+        <div className="flex font-inter text-[12px] flex-row items-center py-2 px-3.5 border-2 border-[#D1D1D1] rounded-[99px] gap-3">
+          {dark ? <p className="text-white">Try Pro</p> : <p>Try Pro</p>}
+          <BsStars className="text-[#007AFF]" />
+        </div>
+      </div>
+      <div className={`w-full hidden max-md:flex flex-row gap-3 px-2 py-3 items-center mt-[15px] ${dark ? 'bg-[#323232]' : 'bg-[#F2F2F7]'} rounded-[99px]`}>
+        <IoIosSearch
+          className={`w-6 h-6 ${dark ? "text-white" : "text-[#3C3C4399]"}`}
+        />
+        <input
+          type="text"
+          placeholder="Search projects and experiences"
+          className={`w-full font-roboto-flex ${
+            dark ? "text-white" : "text-black"
+          } focus:outline-none`}
+        />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
