@@ -25,6 +25,7 @@ import { MdOutlineLightMode } from "react-icons/md";
 const Dashboard = () => {
   const [isDark, setIsDark] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0)
+  const [selectedTemplate, setSelectedTemplate] = useState(null)
 
   const handleDark = () => {
     setIsDark(!isDark)
@@ -39,7 +40,7 @@ const Dashboard = () => {
                 {isDark ? (<MdOutlineLightMode className='w-4 h-4 text-white'/>) : (<MdDarkMode className='w-4 h-4'/>)}
             </div>
             {sidebarItems.slice(0, 5).map((items, key) => (
-              <SidebarItem onSelect={() => {selectedItem(key)}} isSelected={selectedItem == key} dark={isDark} key={key} name={items.name} image={items.image} />
+              <SidebarItem onSelect={() => {setSelectedItem(key)}} isSelected={selectedItem == key} dark={isDark} key={key} name={items.name} image={items.image} />
             ))}
           </div>
           <div className="w-full flex flex-col items-center gap-4">
@@ -84,6 +85,13 @@ const Dashboard = () => {
                 className="absolute bottom-0 right-[450px] object-cover"
                 alt="schedule-img"
               />
+               <div 
+    className="absolute inset-0 z-20 pointer-events-none"
+    style={{
+      background: 'linear-gradient(to top left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%)'
+    }}
+  />
+  
               <div className="w-[279px]">
                 <h2 className="text-4xl font-poppins leading-[44px] font-semibold">
                   Getting started in Sonola
@@ -124,9 +132,12 @@ const Dashboard = () => {
                 {templates.map((template, index) => (
                   <TemplateCard
                     key={index}
+                    dark={isDark}
                     title={template.title}
                     description={template.description}
                     image={template.image}
+                    isSelected={selectedTemplate === index}
+                    onSelect={() => setSelectedTemplate(index)}
                   />
                 ))}
               </div>
