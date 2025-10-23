@@ -9,7 +9,7 @@ const Navbar = ({dark, menu}) => {
         <div className='flex flex-row items-center w-full justify-between'>
         {/*logo*/}
         <div className='flex flex-row items-center gap-2'>
-    <CiMenuBurger onClick={menu} className='block md:hidden w-4 h-4'/>
+    <CiMenuBurger onClick={menu} className={`block md:hidden w-4 h-4 ${dark ? 'text-white' : 'text-black'}`}/>
     <div className='w-[112px] h-[30px]'>
         <img src={logo} className='w-full h-full object-contain' alt="logo" />
     </div>

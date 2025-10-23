@@ -24,9 +24,9 @@ const SidebarItem = ({name, image, dark, isSelected, onSelect}) => {
   return (
     <div onClick={onSelect} className="flex cursor-pointer flex-row md:flex-col items-center gap-1 max-md:bg-[#977BFD] max-md:rounded-2xl">
       <div className={`${isSelected ? ' md:bg-[#0066FFCC]' : `${dark ? 'md:bg-[#EEEEEE1F]' : 'md:bg-[#EEEEEE]'}`} rounded-[45px] py-1.5 px-4 flex items-center justify-center w-[56px] h-[36px] hover:bg-[#0066FFCC] duration-150 gap-4`}>
-        {IconComponent && <IconComponent className={`${isSelected ? 'text-white' : dark ? 'text-gray-400' : 'text-black'} w-6 h-6`} />}
+        {IconComponent && <IconComponent className={`${isSelected ? 'md:text-white text-black' : dark ? 'md:text-gray-400 text-white' : 'md:text-black'}  w-6 h-6`} />}
       </div>
-      <p className={`${dark ? 'text-white' : 'text-black'} font-roboto-flex text-[12px]`}>{name}</p>
+      <p className={`${isSelected ? 'md:text-white text-black' : dark ? 'md:text-gray-400 text-white' : 'md:text-black'}  font-roboto-flex text-[12px]`}>{name}</p>
     </div>
   );
 };

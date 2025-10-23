@@ -36,6 +36,14 @@ const Dashboard = () => {
   const handleDark = () => {
     setIsDark(!isDark);
   };
+
+  if(isMobileMenuOpen) {
+    document.body.style.overflowY = 'hidden';
+
+  }
+  else {
+    document.body.style.overflowY = 'auto';
+  }
   return (
     <div className={isDark ? "dark" : ""}>
       <div className=" relative min-w-full flex flex-row gap-6 h-auto lg:h-[1056px] overflow-hidden dark:bg-[#1F1F1F]">
