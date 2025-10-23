@@ -8,3 +8,5 @@
   --font-inter: 'Inter', sans-serif;
   --font-aeonik: 'Aeonik', sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
