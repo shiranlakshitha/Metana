@@ -32,9 +32,9 @@ const Dashboard = () => {
   }
   return (
     <div className={isDark ? "dark" : ""}>
-      <div className=" relative min-w-full flex flex-row gap-6 h-[1056px] overflow-hidden dark:bg-[#1F1F1F]">
+      <div className=" relative min-w-full flex flex-row gap-6 h-auto lg:h-[1056px] overflow-hidden dark:bg-[#1F1F1F]">
         {/*sidebar*/}
-        <div className="w-[96px] flex flex-col justify-between pt-[60px] pb-[24px] px-2 bg-[#f9f9f9] dark:bg-[#1F1F1F]">
+        <div className="w-[96px] hidden md:flex flex-col justify-between pt-[60px] pb-[24px] px-2 bg-[#f9f9f9] dark:bg-[#1F1F1F]">
           <div className="flex flex-col gap-4">
             <div onClick={handleDark} className={`absolute top-2 left-8 px-1 py-1 rounded-full border-2 cursor-pointer ${isDark ? 'border-white': 'border-black'}`}>
                 {isDark ? (<MdOutlineLightMode className='w-4 h-4 text-white'/>) : (<MdDarkMode className='w-4 h-4'/>)}
@@ -53,40 +53,40 @@ const Dashboard = () => {
           <div className="px-[72px] py-[24px]">
             <Navbar dark={isDark}/>
           </div>
-          <div className="px-[72px] flex flex-col items-center dark:bg-[#1F1F1F]">
-            <div className="w-full relative h-[320px] p-[40px] bg-[#F7F2FFE5]  rounded-3xl overflow-hidden">
+          <div className="px-[15px] md:px-[36px] lg:px-[72px] flex flex-col items-center dark:bg-[#1F1F1F]">
+            <div className="w-full  relative h-[320px] p-[40px] bg-[#F7F2FFE5]  rounded-3xl lg:overflow-hidden">
               <img
                 src={Background}
-                className="absolute z-10 inset-0 object-cover"
+                className="hidden md:block absolute z-10 inset-0 object-fill w-full h-full"
                 alt="background-img"
               />
               <img
                 src={Schedule}
-                className="absolute top-0 right-0 object-cover"
+                className="hidden lg:block absolute top-0 right-0 object-cover"
                 alt="schedule-img"
               />
               <img
                 src={Integrations}
-                className="absolute bottom-0 right-0 object-cover"
+                className="hidden lg:block absolute bottom-0 right-0 object-cover"
                 alt="schedule-img"
               />
               <img
                 src={Tutorial}
-                className="absolute top-0 right-[200px] object-cover"
+                className="hidden lg:block absolute top-0 right-[200px] object-cover"
                 alt="schedule-img"
               />
               <img
                 src={Collaborate}
-                className="absolute bottom-0 right-[200px] object-cover"
+                className="hidden lg:block absolute bottom-0 right-[200px] object-cover"
                 alt="schedule-img"
               />
               <img
                 src={Goal}
-                className="absolute bottom-0 right-[450px] object-cover"
+                className="hidden lg:block absolute bottom-0 right-[450px] object-cover"
                 alt="schedule-img"
               />
                <div 
-    className="absolute inset-0 z-20 pointer-events-none"
+    className="flex justify-center items-center sm:absolute inset-0 z-20 pointer-events-none"
     style={{
       background: 'linear-gradient(to top left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%)'
     }}
@@ -128,7 +128,7 @@ const Dashboard = () => {
                   <GoArrowRight className="w-4 h-4 text-[#5F6367] dark:text-[#ffffff]" />
                 </div>
               </div>
-              <div className="w-full grid grid-cols-4">
+              <div className="w-full grid-cols-1 md:grid-cols-2 grid lg:grid-cols-4 justify-items-center">
                 {templates.map((template, index) => (
                   <TemplateCard
                     key={index}
@@ -157,7 +157,7 @@ const Dashboard = () => {
                   <GoArrowRight className="w-4 h-4 text-[#5F6367] dark:text-[#ffffff]" />
                 </div>
               </div>
-              <div className="grid grid-cols-4">
+              <div className="grid-cols-1 md:grid-cols-2 grid lg:grid-cols-4 justify-items-center">
                 {projects.map((project, index) => (
                   <ProjectCard
                     key={index}
