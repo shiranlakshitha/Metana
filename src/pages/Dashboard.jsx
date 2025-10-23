@@ -21,37 +21,65 @@ import ProjectCard from "../components/ProjectCard";
 import { projects } from "../assets/projects";
 import { MdDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
 
 const Dashboard = () => {
   const [isDark, setIsDark] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(0)
-  const [selectedTemplate, setSelectedTemplate] = useState(null)
+  const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+
+  const handleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   const handleDark = () => {
-    setIsDark(!isDark)
-  }
+    setIsDark(!isDark);
+  };
   return (
     <div className={isDark ? "dark" : ""}>
       <div className=" relative min-w-full flex flex-row gap-6 h-auto lg:h-[1056px] overflow-hidden dark:bg-[#1F1F1F]">
         {/*sidebar*/}
         <div className="w-[96px] hidden md:flex flex-col justify-between pt-[60px] pb-[24px] px-2 bg-[#f9f9f9] dark:bg-[#1F1F1F]">
           <div className="flex flex-col gap-4">
-            <div onClick={handleDark} className={`absolute top-2 left-8 px-1 py-1 rounded-full border-2 cursor-pointer ${isDark ? 'border-white': 'border-black'}`}>
-                {isDark ? (<MdOutlineLightMode className='w-4 h-4 text-white'/>) : (<MdDarkMode className='w-4 h-4'/>)}
+            <div
+              onClick={handleDark}
+              className={`absolute top-2 left-8 px-1 py-1 rounded-full border-2 cursor-pointer ${
+                isDark ? "border-white" : "border-black"
+              }`}
+            >
+              {isDark ? (
+                <MdOutlineLightMode className="w-4 h-4 text-white" />
+              ) : (
+                <MdDarkMode className="w-4 h-4" />
+              )}
             </div>
             {sidebarItems.slice(0, 5).map((items, key) => (
-              <SidebarItem onSelect={() => {setSelectedItem(key)}} isSelected={selectedItem == key} dark={isDark} key={key} name={items.name} image={items.image} />
+              <SidebarItem
+                onSelect={() => {
+                  setSelectedItem(key);
+                }}
+                isSelected={selectedItem == key}
+                dark={isDark}
+                key={key}
+                name={items.name}
+                image={items.image}
+              />
             ))}
           </div>
           <div className="w-full flex flex-col items-center gap-4">
-            <CiCircleQuestion className={`w-5 h-5 ${isDark ? 'text-white': 'text-[#5F6367]'}`} />
-            <IoSettingsOutline className={`w-5 h-5 ${isDark ? 'text-white': 'text-[#5F6367]'}`} />
+            <CiCircleQuestion
+              className={`w-5 h-5 ${isDark ? "text-white" : "text-[#5F6367]"}`}
+            />
+            <IoSettingsOutline
+              className={`w-5 h-5 ${isDark ? "text-white" : "text-[#5F6367]"}`}
+            />
             <img src={profile} alt="profile-img" />
           </div>
         </div>
         <div className="w-full">
           <div className="px-[20px] md:px-[72px] w-full py-[24px]">
-            <Navbar dark={isDark}/>
+            <Navbar dark={isDark} menu={handleMenu} />
           </div>
           <div className="px-[15px] md:px-[36px] lg:px-[72px] flex flex-col items-center dark:bg-[#1F1F1F]">
             <div className="w-full  relative h-[320px] p-[40px] bg-[#F7F2FFE5]  rounded-3xl lg:overflow-hidden">
@@ -85,13 +113,14 @@ const Dashboard = () => {
                 className="hidden lg:block absolute bottom-0 right-[450px] object-cover"
                 alt="schedule-img"
               />
-               <div 
-    className="flex justify-center items-center sm:absolute inset-0 z-20 pointer-events-none"
-    style={{
-      background: 'linear-gradient(to top left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%)'
-    }}
-  />
-  
+              <div
+                className="flex justify-center items-center sm:absolute inset-0 z-20 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to top left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%)",
+                }}
+              />
+
               <div className="w-[279px]">
                 <h2 className="text-4xl font-poppins leading-[44px] font-semibold">
                   Getting started in Sonola
@@ -172,6 +201,53 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      {/*mobile menu*/}
+      {isMobileMenuOpen ? (
+        <div className={`absolute md:hidden  flex flex-col gap-5 px-[15px] justify-between inset-0 w-[60%] h-screen ${isDark ? 'bg-black' : 'bg-[#f7f7f7]'}  `}>
+            <div className=" flex flex-col gap-4 mt-[45px]">
+          {sidebarItems.slice(0, 5).map((items, key) => (
+            <SidebarItem
+              onSelect={() => {
+                setSelectedItem(key);
+              }}
+              isSelected={selectedItem == key}
+              dark={isDark}
+              key={key}
+              name={items.name}
+              image={items.image}
+            />
+          ))}
+        </div>
+         <div className="w-full flex flex-col items-start gap-4">
+            <CiCircleQuestion
+              className={`w-5 h-5 ${isDark ? "text-white" : "text-[#5F6367]"}`}
+            />
+            <IoSettingsOutline
+              className={`w-5 h-5 ${isDark ? "text-white" : "text-[#5F6367]"}`}
+            />
+            <img src={profile} alt="profile-img" />
+          </div>
+          <div className="absolute top-1 left-5 flex flex-row items-center justify-between gap-[115px]">
+            <IoMdClose onClick={handleMenu} className={`w-6 h-6 ${isDark ? 'text-white' : 'text-black'}`}/>
+             <div
+              onClick={handleDark}
+              className={` px-1 py-1 rounded-full border-2 cursor-pointer ${
+                isDark ? "border-white" : "border-black"
+              }`}
+            >
+              {isDark ? (
+                <MdOutlineLightMode className="w-4 h-4 text-white" />
+              ) : (
+                <MdDarkMode className="w-4 h-4" />
+              )}
+            </div>
+          </div>
+        </div>
+        
+        
+      ) : (
+        ""
+      )}
     </div>
   );
 };

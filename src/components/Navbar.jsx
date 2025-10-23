@@ -2,15 +2,18 @@ import React from 'react'
 import logo from '../assets/logo.png'
 import { IoIosSearch } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
-
-const Navbar = ({dark}) => {
+import { CiMenuBurger } from "react-icons/ci";
+const Navbar = ({dark, menu}) => {
   return (
     <>
         <div className='flex flex-row items-center w-full justify-between'>
         {/*logo*/}
-        <div className='w-[80px] md:w-[112px] h-[30px]'>
-            <img src={logo} className='w-full h-auto object-cover' alt="logo" />
-        </div>
+        <div className='flex flex-row items-center gap-2'>
+    <CiMenuBurger onClick={menu} className='block md:hidden w-4 h-4'/>
+    <div className='w-[112px] h-[30px]'>
+        <img src={logo} className='w-full h-full object-contain' alt="logo" />
+    </div>
+</div>
         {/*search bar*/}
         {dark ? (<div className='hidden md:flex flex-row items-center bg-[#323232] flex-1 md:w-[594px] rounded-[99px] py-[8px] pl-[16px] gap-2 text-[12px]'>
             <IoIosSearch className='text-[#ffffff] w-3.5 h-3.5'/>
